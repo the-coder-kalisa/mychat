@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, {useState} from 'react';
+import Home from './pages/Home.js'
+import Login from './pages/Login.js';
+import Signup from './pages/Signup.js';
+import Chat from './pages/Chat.js';
+import {AppContext, socket} from './context/appContext.js'
 
 function App() {
+  const [rooms, setRooms] = useState([]);
+  const [currentRoom, setCurrentroom] = useState('');
+  const [members, setMembers] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [privateMemberMsg, setPrivateMemberMsg] = useState({});
+  const [newMessage, setNewMessage] = useState({})
+  const user = localStorage.getItem('chat');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={{socket, currentRoom, setCurrentroom, members, setMembers, messages, 
+    setMessages, privateMemberMsg, setPrivateMemberMsg, rooms, setRooms, newMessage, setNewMessage}}>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/chat" element={<Chat />} />
+    </Routes>
+    </BrowserRouter>
+     </AppContext.Provider>
   );
 }
 

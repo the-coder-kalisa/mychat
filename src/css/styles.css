@@ -1,0 +1,15 @@
+@media screen and (max-width: 995px){
+    img:nth-child(2):not(.thecoder){
+        display: none;
+    }
+    form.thecoder{
+        width: 80%;
+        height: 100vh;
+    }
+}
+@media screen and (max-width:344px){
+
+}
+.overflow-auto::-webkit-scrollbar{
+    width: 0;
+}
