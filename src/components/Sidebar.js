@@ -3,8 +3,8 @@ import {AppContext} from '../context/appContext.js';
 import { Avatar } from '@mui/material';
 import {Circle} from '@mui/icons-material'
 function Sidebar() {
-    const {socket, currentRoom, setCurrentroom, members, rooms, setMembers, messages, 
-    setMessages, privateMemberMsg, setPrivateMemberMsg, setRooms, newMessage, setNewMessage} = useContext(AppContext);
+    const {socket, currentRoom, setCurrentroom, members, rooms, setMembers
+      , privateMemberMsg, setPrivateMemberMsg, setRooms} = useContext(AppContext);
     const user = JSON.parse(localStorage.getItem('chat'));
     const final = [];
     socket.off('new-user').on('new-user', (payload)=>{
@@ -50,7 +50,6 @@ function Sidebar() {
         getRooms();
         socket.emit('join-room', 'general');
         socket.emit('new-user');
-        let nots = 0;
         socket.on('notification', (payload)=>{
           console.log(payload)
         });

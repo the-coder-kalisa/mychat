@@ -22,7 +22,6 @@ const handleLogout = async()=>{
   localStorage.clear('chat');
   navigate('/')
 };
-console.log(user)
   return (
     <div className="bg-[#ffffff] fixed w-full shadow-md z-50 drop-shadow-xl flex h-16 items-center  justify-between px-4">
         <Link to="/" className="text-blue-600">Chat app<CommentTwoTone /></Link>

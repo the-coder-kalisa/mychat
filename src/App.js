@@ -13,7 +13,6 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [privateMemberMsg, setPrivateMemberMsg] = useState({});
   const [newMessage, setNewMessage] = useState({})
-  const user = localStorage.getItem('chat');
   return (
     <AppContext.Provider value={{socket, currentRoom, setCurrentroom, members, setMembers, messages, 
     setMessages, privateMemberMsg, setPrivateMemberMsg, rooms, setRooms, newMessage, setNewMessage}}>

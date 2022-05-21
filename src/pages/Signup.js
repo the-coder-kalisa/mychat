@@ -17,8 +17,7 @@ export default function Signup() {
         password: '',
     })
     const getValues = (e) =>{
-        setValues({...values, [e.target.name]: e.target.value})
-       
+        setValues({...values, [e.target.name]: e.target.value})   
     }
     const [preview, setPreview] = useState(null)
     const getPhoto = (e) =>{
@@ -66,10 +65,10 @@ export default function Signup() {
               <h1 className="text-2xl font-semibold text-center w-full">Create acccount</h1> 
               <div className="w-[100px] h-[100px] mx-auto relative">
                   {preview !== null ? <div className="overflow-hidden max-h-[100px]  rounded-full max-w-[100px]"><img src={preview} alt="preview" className="rounded-full"/></div> :<Avatar sx={{height: '90px', width: '90px'}} className="w-[100px] rounded-full text-2xl"/>}
-                  <label htmlFor="image-upload" className="image-upload-label"><Plus sx={{height: '30px', width: '30px'}} className="bg-[green] absolute right-[8px] bottom-0 rounded-full text-white cursor-pointer z-[99]"/></label>
+                  <label htmlFor="image-upload"><Plus sx={{height: '30px', width: '30px'}} className="bg-[green] absolute right-[8px] bottom-0 rounded-full text-white cursor-pointer z-[99]"/></label>
                   <input name="photo" type="file" onChange={getPhoto} hidden accept='image/*' id="image-upload" />
               </div>
-              {err !==null ? <Alert color="error" className="animate-bounce">{err}</Alert> : <div className="h-12"></div>}
+              {err !==null ? <Alert severity="error" className="animate-bounce">{err}</Alert> : <div className="h-12"></div>}
               <div className="flex flex-col items-start gap-2">
               <span className="text-xl font-[400]">Name</span>
               <div className="flex flex-col">

@@ -33,7 +33,7 @@ function Login() {
         <div className="flex items-center justify-center pt-20 space-around">
             <img src={bg} className="h-[67vh] w-[70vh]" alt="signup"/>
             <form onSubmit={handlelogin} className="flex bg-white shadow drop-shadow-2xl px-16 h-[67vh] flex-col gap-3 w-[500px] justify-center">
-                {err !==null ? <Alert color="error" className={'animate-bounce'}>{err}</Alert> : <div className="h-12"></div>}
+                {err !==null ? <Alert severity="error" className={'animate-bounce'}>{err}</Alert> : <div className="h-12"></div>}
                 <div className="flex flex-col items-start gap-2">
                     <span className="text-xl font-[400]">Email address</span>
                     <div className="flex flex-col">
